@@ -1,0 +1,183 @@
+﻿
+
+
+
+	<!-- start Container Wrapper -->
+	<div class="container-wrapper">
+
+		
+
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper scrollspy-container">
+		
+			<!--<div class="breadcrumb-wrapper">
+			
+				<img src="app/images/inner-banner.jpg" alt="">
+
+			</div>-->
+		
+			<div class="contact-page-wrapper">
+			
+				<div class="container">
+					
+					<div class="contact-map">
+					
+						
+
+						
+						
+						<div class="row">
+						
+							<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+							
+								
+							</div>
+						
+						</div>
+						
+						<div class="row">
+
+							<div class="col-sm-12">
+							
+                                <form class="contact-form-wrapper" novalidate name="addCourseDetailForm">
+                                    <div data-ng-show="errorIndicator" style="color:red">
+                                        {{errorMessage}}
+                                    </div>
+                                    <div data-ng-show="!errorIndicator" style="color:green">
+                                        {{successMessage}}
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+
+                                            <div class="form-group">
+                                                <label for="inputName">Select Course Group <span class="font10 text-danger">(required)</span></label>
+                                                <select data-ng-model="course.main_course_id" ng-options="item.main_course_id as item.main_course for item in courseMenu"
+                                                        data-ng-change="selectSubCourseMenu()" name="courseGroup" required
+                                                        ng-class="{error : addCourseDetailForm.groupName.$invalid && addCourseDetailForm.$submitted}">
+                                                    <option value="">Select Course Group</option>
+                                                </select>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-6">
+
+                                            <div class="form-group">
+                                                <label for="inputName">Select SubCourse Group <span class="font10 text-danger">(required)</span></label>
+                                                <select data-ng-model="course.sub_course_id" ng-options="item.sub_course_id as item.name for item in subCourseMenu"
+                                                        name="subCourse" required data-ng-change="getSubCourseDetailsIfAny()"
+                                                        ng-class="{error : addCourseDetailForm.subCourse.$invalid && addCourseDetailForm.$submitted}">
+                                                    <option value="">Select course</option>
+                                                </select>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group upload-img">
+                                                <label>Upload	</label>
+                                                <input type="file" class="form-control" name="uploadImage"
+                                                       fileread="courseImage" accept="image/*" data-ng-model="courseImage"
+                                                       ng-class="{error : addCourseDetailForm.uploadImage.$invalid && addCourseDetailForm.$submitted}" />
+                                            </div>
+                                            <div class="form-group uploaded-img">
+                                                <label>Uploaded Image :</label>
+                                                <img src="{{courseImage}}" width="100" height="50" alt="Image preview...">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-12">
+
+                                            <div class="form-group">
+                                                <label for="inputMessage">Description <span class="font10 text-danger">(required)</span></label>
+                                                <textarea id="inputMessage" class="form-control description-detail" rows="8"
+                                                          name="courseDescription" required data-ng-model="course.description"
+                                                          ng-class="{error : addCourseDetailForm.courseDescription.$invalid && addCourseDetailForm.$submitted}"></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="inputMessage">Pre Requistic <span class="font10 text-danger">(required)</span></label>
+                                                <textarea id="inputMessage" class="form-control" rows="8" data-ng-model="course.course_prerequisites"
+                                                          name="coursePreRequistic" required ng-list="&#10;" ng-trim="false"
+                                                          ng-class="{error : addCourseDetailForm.coursePreRequistic.$invalid && addCourseDetailForm.$submitted}"></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-content">
+                                                <ul data-ng-repeat="item in course.course_prerequisites">
+                                                    <li>- {{item}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Duration</label>
+                                                <input type="text" class="form-control" name="duration" required data-ng-model="course.course_duration"
+                                                       ng-class="{error : addCourseDetailForm.duration.$invalid && addCourseDetailForm.$submitted}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="training_highlights">Training Highlight <span class="font10 text-danger">(required)</span></label>
+                                                <textarea id="training_highlights" class="form-control" rows="8"
+                                                          name="trainingHighlight" required data-ng-model="course.training_highlights" ng-list="&#10;" ng-trim="false"
+                                                          ng-class="{error : addCourseDetailForm.trainingHighlight.$invalid && addCourseDetailForm.$submitted}"></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-content">
+                                                <ul data-ng-repeat="item in course.training_highlights">
+                                                    <li>- {{item}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputMessage">Course Heading Content (Chapter Name)<span class="font10 text-danger">(required)</span></label>
+                                                <textarea id="inputMessage" class="form-control" rows="8"
+                                                          name="courseContent" required data-ng-model="course.chapter_name" ng-list="&#10;" ng-trim="false"
+                                                          ng-class="{error : addCourseDetailForm.courseContent.$invalid && addCourseDetailForm.$submitted}"></textarea>
+                                                <!--<input type="button" value="get List" data-ng-click="getContentList()"/>-->
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-content">
+                                                <ul data-ng-repeat="item in course.chapter_name">
+                                                    <li>- {{item}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <input type="submit" ng-click="addCourseDetail()" class="btn btn-primary mt-5" value="Submit" />
+                                            <input type="button" class="btn btn-primary mt-5" value="Cancel" data-ng-click="onCancel()" />
+                                        </div>
+
+                                    </div>
+
+                                </form>
+								
+							</div>
+							
+							
+							
+						</div>
+					
+					</div>
+
+				</div>
+				
+			</div>	
+
+		</div>
+		<!-- end Main Wrapper -->
+		
+		
+		
+	</div>
+	<!-- end Container Wrapper -->
+
+    <!-- start Back To Top -->
+    <div id="back-to-top">
+        <a href="#"><i class="ion-ios-arrow-up"></i></a>
+    </div>
+    <!-- end Back To Top -->
+
+   

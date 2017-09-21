@@ -1,0 +1,208 @@
+﻿
+
+
+
+	<!-- start Container Wrapper -->
+	<div class="container-wrapper">
+
+		
+
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper scrollspy-container">
+		
+			<div class="breadcrumb-wrapper">
+			
+				<img src="app/images/Contact-us.jpg" alt="">
+
+			</div>
+		
+			<div class="contact-page-wrapper">
+			
+				<div class="container">
+					
+					<div class="contact-map">
+					
+						
+                        <iframe src="https://www.google.co.in/maps/place/GrowSure/@22.7003484,75.8663527,17z/data=!3m1!4b1!4m5!3m4!1s0x3962fce265377c87:0x312919a7f12f900c!8m2!3d22.7003484!4d75.8685414" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>       
+						
+						
+						<div class="row">
+						
+							<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+							
+								<div class="section-title">
+									<h2 class="text-center">Contact us for help</h2>
+									<p>
+                                        Thank you for your interest in our services. Please provide the following information about your needs to help us 
+                                        serve you better. This information will enable us to route your request to the appropriate person. You should receive a response 
+                                        within 48 hours.
+                                    </p>
+								</div>
+							</div>
+						
+						</div>
+						
+						<div class="row">
+
+							<div class="col-sm-7 col-md-6 col-md-offset-1 mb-30">
+							
+								<form class="contact-form-wrapper" data-toggle="validator" novalidate name="contactusForm">
+								
+                                    <div data-ng-show="errorIndicator" style="color:red">
+                                        {{errorMessage}}
+                                    </div>
+                                    <div data-ng-show="!errorIndicator" style="color:green">
+                                        <b>{{successMessage}}</b>
+                                    </div>
+									<div class="row">
+									
+										<div class="col-sm-6">
+										
+											<div class="form-group">
+												<label for="inputName">Your Name <span class="font10 text-danger">(*)</span></label>
+                                                <input id="inputName" name="inputName" type="text" class="form-control" required data-ng-model="user.name" maxlength="20"
+                                                       ng-class="{error : contactusForm.inputName.$invalid && contactusForm.$submitted}"/>
+												<div class=" help-block with-errors"></div>
+											</div>
+											
+										</div>
+										
+										<div class="col-sm-6">
+										
+											<div class="form-group">
+												<label for="inputEmail">Your Email <span class="font10 text-danger">(*)</span></label>
+                                                <input id="inputEmail" name="inputEmail" type="email" class="form-control" required data-ng-model="user.email"
+                                                       ng-class="{error : contactusForm.inputEmail.$invalid && contactusForm.$submitted}" ng-pattern="emailformat" />
+												<div class=" help-block with-errors"></div>
+											</div>
+											
+										</div>
+										
+										<div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputPhone">Your Phone <span class="font10 text-danger">(*)</span></label>
+                                                <input id="inputPhone" name="inputPhone" type="text" class="form-control" required maxlength="10"
+                                                       ng-minlength="10" data-ng-model="user.phone"
+                                                       ng-class="{error : contactusForm.inputPhone.$invalid && contactusForm.$submitted}" />
+                                                <div class=" help-block with-errors"></div>
+                                            </div>
+											
+										</div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Subject</label>
+                                                <input type="text" class="form-control" name="inputSubject" id="inputSubject" data-ng-model="user.subject" maxlength="100"
+                                                       ng-class="{error : contactusForm.inputSubject.$invalid && contactusForm.$submitted}" />
+                                            </div>
+
+                                        </div>
+										
+										<div class="col-sm-12">
+										
+											<div class="form-group">
+												<label for="inputMessage">Message <span class="font10 text-danger"></span></label>
+                                                <textarea id="inputMessage" class="form-control" rows="8" required
+                                                          data-ng-maxlength="500" data-ng-model="user.message" name="inputMessage"
+                                                          ng-class="{error : contactusForm.inputMessage.$invalid && contactusForm.$submitted}"></textarea>
+												<div class="help-block with-errors"></div>
+											</div>
+
+										</div>
+										
+										<div class="col-sm-12">
+											<button type="submit" class="btn btn-primary mt-5" data-ng-click="contactUs()">Send Message</button>
+										</div>
+										
+									</div>
+									
+								</form>
+								
+							</div>
+							
+							<div class="col-sm-5 col-md-4">
+							
+								<ul class="address-list">
+									<li>
+											<h5>Address</h5>
+											<address><strong> 4th floor shell tower, opposite Pizza Hut Sapna Sangeeta main road, Indore </strong></address>
+									</li>
+									<li>
+											<h5>Email</h5>growsure@yahoo.com
+									</li>
+									<li>
+											<h5>Phone Number</h5>94244-25010
+									</li>
+									<li>
+											<h5>Skype</h5>your_skype_id
+									</li>
+									<li>
+											<h5>Social Networks</h5>
+											<div class="contact-social">
+											
+												<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+												<a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+											
+											</div>
+									</li>
+										
+								</ul>
+							
+							</div>
+							
+						</div>
+					
+					</div>
+
+				</div>
+				
+			</div>	
+
+		</div>
+		<!-- end Main Wrapper -->
+		
+		
+		
+	</div>
+	<!-- end Container Wrapper -->
+ 
+ 
+<!-- start Back To Top -->
+<div id="back-to-top">
+   <a href="#"><i class="ion-ios-arrow-up"></i></a>
+</div>
+<!-- end Back To Top -->
+
+<div id="ajaxLoginModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
+		
+<div id="ajaxRegisterModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;">
+</div>
+
+<div id="ajaxForgotPasswordModal" class="modal fade login-box-wrapper" data-width="500" data-backdrop="static" data-keyboard="false" tabindex="-1" style="display: none;"></div>
+
+
+<!-- JS -->
+<script src="https://use.fontawesome.com/796412e158.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="js/typed.js"></script>
+<script type="text/javascript" src="js/placeholderTypewriter.js"></script>
+<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/select2.full.js"></script>
+<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="js/readmore.min.js"></script>
+<script type="text/javascript" src="js/slick.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-rating.js"></script>
+<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="js/creditly.js"></script>
+<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="js/customs.js"></script>

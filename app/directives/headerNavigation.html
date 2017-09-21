@@ -1,0 +1,47 @@
+﻿<div ng-controller="leftNavigationCtrl">
+    <!--login pop up -->
+    <div class="modal fade" id="loginPopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal" data-ng-click="closeLoginPopup()"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Login</h3>
+                        <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                            {{ message}}
+                        </div>
+                        <div class="alert alert-danger" data-ng-show="emailIndicator">
+                            Please enter valid email address.
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form name="loginForm" novalidate class="signUpForm">
+                            <div class="popup-form-row">
+                                <div class="form-field">
+                                    <input type="email" class="form-control" placeholder="Email" required name="email" id="email" data-ng-model="user.email"
+                                           data-ng-blur="checkEmail()" ng-keyup="checkEmail()"
+                                           ng-class="{error : (loginForm.email.$invalid && loginForm.$submitted) || emailIndicator}">
+                                </div>
+                            </div>
+                            <div class="popup-form-row last">
+                                <div class="form-field">
+                                    <input type="password" class="form-control" placeholder="password" name="password" required data-ng-model="user.password"
+                                           ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                                </div>
+                            </div>
+                            <!--<a href="" class="forgot_btn" data-dismiss="modal" data-toggle="modal" data-target="#forgetPopup">Forgot Password?</a>-->
+                            <div class="popup-button-group">
+                                <input type="button" value="Login" class="btn btn-primary btn-block login_btn" data-ng-click="login()">
+
+                            </div>
+                            <div class="eb_bottom_btn">
+                                <!--<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signUpPopup">Sign Up On Event Bid</a>-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,167 @@
+﻿
+
+
+
+	<!-- start Container Wrapper -->
+	<div class="container-wrapper">
+
+		
+
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper scrollspy-container">
+		
+			<div class="breadcrumb-wrapper">
+			
+				<img src="app/images/inner-banner.jpg" alt="">
+
+			</div>
+		
+			<div class="contact-page-wrapper">
+			
+				<div class="container">
+					
+					<div class="contact-map">
+						<input type="button" value="add blog" data-ng-click="showAddBlogSection()" />
+                        <input type="button" value="list/delete blogs" data-ng-click="listBlogSection()" />
+                        <!--Add Blog Section-->
+                        <div data-ng-show="addBlogIndicator">
+                            <div class="row">
+
+                                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                                    <div class="section-title" data-ng-if="createBlogIndicator">
+                                        <h4 class="text-center">Create Blog</h4>
+                                        <p>Experts can add blog of their respective subjects.</p>
+                                    </div>
+                                    <div class="section-title" data-ng-if="updateBlogIndicator">
+                                        <h4 class="text-center">Update Blog</h4>
+                                        <p>Experts can update blog of their respective subjects.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div data-ng-show="errorIndicator" style="color:red">
+                                   <b>{{errorMessage}}</b> 
+                                </div>
+                                <div data-ng-show="!errorIndicator" style="color:green">
+                                    <b>{{successMessage}}</b>
+                                </div>
+                                <div class="col-sm-12">
+
+                                    <form class="contact-form-wrapper" name="addBlogForm" novalidate>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-12">
+
+                                                <div class="form-group">
+                                                    <label for="blog_title">Title <span class="font10 text-danger">(required)</span></label>
+                                                    <input type="text" class="form-control" data-ng-model="blog.blog_title" required
+                                                           data-ng-class="{error : addBlogForm.blog_title.$invalid && addBlogForm.$submitted}" name="blog_title">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputEmail">Select Group <span class="font10 text-danger">(required)</span></label>
+                                                    <select data-ng-model="blog.blog_group_id" ng-options="item.main_course_id as item.main_course for item in courseMenu"
+                                                            data-ng-change="selectSubCourseMenu()" name="courseGroup" required
+                                                            data-ng-class="{error : addBlogForm.courseGroup.$invalid && addBlogForm.$submitted}">
+                                                        <option value="">Select Course Group</option>
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputName">Select Course <span class="font10 text-danger">(required)</span></label>
+                                                    <select data-ng-model="blog.blog_course_id" ng-options="item.sub_course_id as item.name for item in subCourseMenu"
+                                                            name="subCourse" required
+                                                            ng-class="{error : addBlogForm.subCourse.$invalid && addBlogForm.$submitted}">
+                                                        <option value="">Select course</option>
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-12">
+
+                                                <div class="form-group">
+                                                    <label for="inputMessage">Description <span class="font10 text-danger">(required)</span></label>
+                                                    <textarea id="blog_description" class="form-control" rows="8" data-ng-model="blog.blog_description"
+                                                              required ng-class="{error : addBlogForm.blog_description.$invalid && addBlogForm.$submitted}"></textarea>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    <label for="inputName">Submission name <span class="font10 text-danger">(required)</span></label>
+                                                    <input id="blog_submit_by" type="text" class="form-control" data-ng-model="blog.blog_submit_by" required name="blog_submit_by"
+                                                           ng-class="{error : addBlogForm.blog_submit_by.$invalid && addBlogForm.$submitted}">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-2" data-ng-if="createBlogIndicator">
+                                                    <button type="submit" class="btn btn-primary mt-5" data-ng-click="createBlog()">Create blog</button>
+                                                </div>
+                                                <div class="col-sm-2" data-ng-if="updateBlogIndicator">
+                                                    <button type="submit" class="btn btn-primary mt-5" data-ng-click="updateBlog()">Update blog</button>
+                                                </div>
+                                                    <button type="submit" class="btn btn-primary mt-5" data-ng-click="cancelBlog()">Cancel</button>
+                                             </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+					    <div data-ng-if="listBlogIndicator">
+                            <aside class="sidebar-wrapper for-blog">
+                                <div class="clear"></div>
+                                <div class="sidebar-module clearfix" ng-repeat="blog in blogList">
+                                    <h6 class="sidebar-title">
+                                        <a data-ng-click="getBlogDetails(blog)" class="inverse"><u>{{blog.blog_title}}</u> </a>
+                                    <input type="button" data-ng-click="deleteBlog(blog)" value="delete">
+                                    </h6>
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="sidebar-module clearfix">
+                                </div>
+                            </aside>
+                        </div>
+					</div>
+
+				</div>
+				
+			</div>	
+
+		</div>
+		<!-- end Main Wrapper -->
+		
+		
+		
+	</div>
+	<!-- end Container Wrapper -->
+ 
+ 
+<style>
+    .inverse{
+        cursor: pointer;
+    }
+</style>

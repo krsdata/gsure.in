@@ -1,0 +1,69 @@
+﻿<div class="course-detail-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                
+            <div class="add-course-form">
+                <h3> Add Course Panel</h3>
+                <form class="group-name" novalidate name="addCourseForm">
+                    <div data-ng-show="errorIndicator" style="color:red">
+                        {{errorMessage}}
+                    </div>
+                    <div data-ng-show="!errorIndicator" style="color:green">
+                        {{successMessage}}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Enter Group Name</label>
+                        <input type="text" data-ng-model="course.main_course" id="groupName" name="groupName" required
+                               ng-class="{error : addCourseForm.groupName.$invalid && addCourseForm.$submitted}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect2">Enter Sub course Number</label>
+                        <input type="number" min="1"
+                               maxlength="15" data-ng-model="subCourseLength" required
+                               ng-class="{error : addCourseForm.subCourseLength.$invalid && addCourseForm.$submitted}" data-ng-keyup="addSubCoursesTextBox()" />
+                    </div>
+
+                    <div data-ng-if="subCourseIndicator">
+
+                        <div data-ng-repeat="item in sub_course track by $index">
+                            <div class="form-group">
+                                <label for="exampleTextarea">Enter Sub Course Name</label>
+                                <input type="text" required data-ng-model="item.name" name="subCourse" id="subcourse"
+                                       ng-class="{error : addCourseForm.item.name.$invalid && addCourseForm.$submitted}">
+
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-primary" data-ng-click="addCourse()" value="Add" />
+                    <input type="button" class="btn btn-primary" value="Cancel" data-ng-click="cancelAddCourse()" />
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-sm-4">
+            			<aside class="sidebar-wrapper for-blog">
+									<div class="clear"></div>
+                            <div class="sidebar-module clearfix" ng-repeat="item in CourseMenu">
+                                    <h6 class="sidebar-title">{{item.main_course}} <input type="button" data-ng-click="deleteGroup(item)" value="delete"></h6>
+                                <div class="sidebar-module-inner">
+                                    <ul class="sidebar-category" data-ng-repeat="data in item.sub_course">
+                                        <li>{{data.name}}
+                                            <input type="button" data-ng-click="deleteSubCourse(item, data.sub_course_id)" value="delete"></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+									<div class="clear"></div>
+									
+									<div class="sidebar-module clearfix">
+														
+										
+										
+										
+										
+									</div></aside>
+        </div>
+    </div>
+    </div>
+</div>

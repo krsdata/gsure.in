@@ -1,0 +1,137 @@
+﻿
+
+
+
+	<!-- start Container Wrapper -->
+	<div class="container-wrapper">
+
+		
+
+		<!-- start Main Wrapper -->
+		<div class="main-wrapper scrollspy-container">
+		
+			<div class="breadcrumb-wrapper">
+			
+				<img src="images/inner-banner.jpg" alt="">
+
+			</div>
+		
+			<div class="equal-content-sidebar-wrapper">
+				
+				<div class="equal-content-sidebar-by-gridLex right-sidebar">
+	
+					<div class="container">
+					
+						<div class="GridLex-grid-noGutter-equalHeight">
+							
+							<div class="GridLex-col-9_sm-8_xs-12_xss-12">
+								
+								<div class="content-wrapper">
+									<div class="blog-wrapper">
+                                        <div class="blog-item" data-ng-repeat="blog in filteredBlogList">
+                                            <div class="blog-media">
+                                                <div class="overlay-box">
+                                                    <a class="blog-image" href="blog-single.html">
+                                                        <img src="images/teacher-bg.jpg" alt="" />
+                                                        <div class="image-overlay">
+                                                            <div class="overlay-content">
+                                                                <div class="overlay-icon"><i class="pe-7s-link"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="blog-content">
+                                                <h3><a href="blog-single.html" class="inverse">{{blog.blog_title}}</a></h3>
+                                                <ul class="blog-meta">
+                                                    <li> by {{blog.blog_submit_by}}</li>
+                                                    <li>on {{blog.blog_submission_date}}</li>
+                                                    <li>in {{blog.blog_group}},
+                                                        <a href="#/blogs/{{blog.blog_course}}/{{blog.blog_course_id}}">{{blog.blog_course}}</a></li>
+                                                </ul>
+                                                <div class="blog-entry comment more">
+                                                    {{blog.blog_description}}
+                                                </div>
+                                                <!--<a href="blog-single.html" class="btn btn-primary btn-sm">Read More <i class="fa fa-long-arrow-right"></i></a>-->
+                                            </div>
+
+                                        </div>
+                                        <ul>
+                                            <li style="color:#333" data-ng-show="blogList.length == 0">
+                                                No record found.
+                                            </li>
+                                        </ul>
+									</div>
+									
+									<div class="review-pager pager-wrappper mt-40">
+												
+										<div class="row">
+										
+											<div class="col-xs-12 col-sm-12">
+                                                <pagination ng-model="currentPage"
+                                                            total-items="blogSize"
+                                                            max-size="maxSize"
+                                                            boundary-links="true">
+                                                </pagination>
+											</div>
+								
+										</div>
+									
+									</div>
+								
+								</div>
+								
+							</div>
+
+							<div class="GridLex-col-3_sm-4_xs-12_xss-12">
+							
+								<aside class="sidebar-wrapper for-blog">
+							
+									<div class="sidebar-module">
+										<div class="sidebar-module-inner">
+											<div class="sidebar-mini-search">
+												<div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Search for..." data-ng-model="searchText">
+													<span class="input-group-btn">
+														<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="clear"></div>
+									
+                                    <div class="sidebar-module clearfix" ng-repeat="item in CourseMenu | filter : searchText">
+
+                                        <h6 class="sidebar-title">{{item.main_course}}</h6>
+
+                                        <div class="sidebar-module-inner">
+                                            <ul class="sidebar-category" data-ng-repeat="data in item.sub_course | filter : searchText">
+                                                <li><a href="#/blogs/{{data.name}}/{{data.sub_course_id}}">{{data.name}}</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+									
+								</aside>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+		<!-- end Main Wrapper -->
+		
+		
+	</div>
+	<!-- end Container Wrapper -->
+ 
+ 
